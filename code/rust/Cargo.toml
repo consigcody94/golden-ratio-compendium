@@ -1,0 +1,33 @@
+[package]
+name = "golden-ratio"
+version = "1.0.0"
+edition = "2021"
+authors = ["Golden Ratio Compendium Contributors"]
+description = "A comprehensive library for working with the golden ratio and Fibonacci sequences"
+license = "MIT"
+repository = "https://github.com/golden-ratio-compendium/golden-ratio-compendium"
+documentation = "https://docs.rs/golden-ratio"
+readme = "../../README.md"
+keywords = ["golden-ratio", "phi", "fibonacci", "mathematics", "design"]
+categories = ["mathematics", "science", "algorithms"]
+
+[lib]
+name = "golden_ratio"
+path = "golden_ratio.rs"
+
+[[bin]]
+name = "golden-ratio"
+path = "golden_ratio.rs"
+
+[dependencies]
+
+[dev-dependencies]
+criterion = "0.5"
+
+[[bench]]
+name = "fibonacci_bench"
+harness = false
+
+[profile.release]
+opt-level = 3
+lto = true
