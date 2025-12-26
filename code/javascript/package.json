@@ -1,0 +1,47 @@
+{
+  "name": "golden-ratio-toolkit",
+  "version": "1.0.0",
+  "description": "Golden ratio utilities for design and typography",
+  "main": "type-scale.js",
+  "module": "type-scale.mjs",
+  "types": "type-scale.d.ts",
+  "scripts": {
+    "demo": "node type-scale.js",
+    "test": "node --test test/*.test.js",
+    "lint": "eslint *.js",
+    "format": "prettier --write *.js"
+  },
+  "keywords": [
+    "golden-ratio",
+    "phi",
+    "typography",
+    "design-system",
+    "type-scale",
+    "spacing",
+    "css",
+    "tailwind"
+  ],
+  "author": "Golden Ratio Compendium Contributors",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/golden-ratio-compendium/golden-ratio-compendium.git"
+  },
+  "bugs": {
+    "url": "https://github.com/golden-ratio-compendium/golden-ratio-compendium/issues"
+  },
+  "homepage": "https://github.com/golden-ratio-compendium/golden-ratio-compendium#readme",
+  "engines": {
+    "node": ">=16.0.0"
+  },
+  "files": [
+    "type-scale.js",
+    "type-scale.mjs",
+    "type-scale.d.ts",
+    "README.md"
+  ],
+  "devDependencies": {
+    "eslint": "^8.0.0",
+    "prettier": "^3.0.0"
+  }
+}

@@ -1,9 +1,68 @@
 # The Golden Ratio Compendium
 
+[![CI](https://github.com/golden-ratio-compendium/golden-ratio-compendium/actions/workflows/ci.yml/badge.svg)](https://github.com/golden-ratio-compendium/golden-ratio-compendium/actions)
+[![Python 3.9+](https://img.shields.io/badge/python-3.9+-blue.svg)](https://www.python.org/downloads/)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+
 > A comprehensive exploration of φ (phi) — the divine proportion that connects mathematics, nature, art, and modern technology.
 
 ```
 φ = (1 + √5) / 2 ≈ 1.6180339887...
+```
+
+## Installation
+
+### Python Package
+
+```bash
+# Install from source
+pip install -e .
+
+# Install with development dependencies
+pip install -e ".[dev]"
+
+# Or install dependencies only
+pip install -r requirements.txt
+```
+
+### CLI Tool
+
+After installation, use the command-line tool:
+
+```bash
+# Display golden ratio information
+golden-ratio info
+
+# Generate Fibonacci sequence
+golden-ratio fib 20 --ratios
+
+# Calculate golden rectangle dimensions
+golden-ratio rect --width 1920
+
+# Generate design scales
+golden-ratio scale --base 16
+
+# Calculate Fibonacci trading levels
+golden-ratio trading 200 100
+
+# Calculate nth Fibonacci number
+golden-ratio nth 100
+```
+
+### Rust Library
+
+```bash
+cd code/rust
+cargo build --release
+cargo test
+```
+
+### JavaScript/Node.js
+
+```bash
+cd code/javascript
+npm install
+npm run demo
 ```
 
 ## What is the Golden Ratio?
@@ -25,126 +84,134 @@ a + b     a
 | Square | φ² = φ + 1 | 2.6180339887... |
 | Cube | φ³ = 2φ + 1 | 4.2360679774... |
 
+## Quick Start
+
+### Python Library
+
+```python
+from golden_ratio import PHI, GoldenRatio, Fibonacci, DesignScale
+
+# Basic calculations
+print(f"φ = {PHI}")
+print(f"1/φ = {GoldenRatio.inverse_phi()}")
+
+# Fibonacci sequence
+fib = Fibonacci.sequence(10)
+print(f"Fibonacci: {fib}")
+
+# Design scale
+scale = DesignScale.type_scale(16)
+print(f"Typography: {scale}")
+```
+
+### JavaScript
+
+```javascript
+const { PHI, generateTypeScale, generateSpacingScale } = require('./type-scale');
+
+console.log(`φ = ${PHI}`);
+
+const typeScale = generateTypeScale(16, PHI, 6);
+console.log('Type scale:', typeScale);
+
+const spacing = generateSpacingScale(8);
+console.log('Spacing:', spacing);
+```
+
 ## Repository Structure
 
 ```
 golden-ratio-compendium/
 ├── README.md                    # This file
+├── pyproject.toml               # Python package configuration
+├── requirements.txt             # Python dependencies
+├── src/
+│   └── golden_ratio/            # Python package
+│       ├── __init__.py
+│       ├── constants.py         # Mathematical constants
+│       ├── core.py              # Core calculations
+│       ├── fibonacci.py         # Fibonacci implementations
+│       ├── design.py            # Design scale utilities
+│       ├── trading.py           # Trading calculations
+│       ├── phyllotaxis.py       # Natural patterns
+│       ├── hashing.py           # Hash utilities
+│       └── cli.py               # Command-line interface
+├── tests/                       # Python test suite
 ├── docs/
+│   ├── INDEX.md                 # Documentation index
 │   ├── 01-mathematics.md        # Mathematical foundations
 │   ├── 02-history.md            # Historical overview
 │   ├── 03-nature.md             # Golden ratio in nature
-│   ├── 04-art-architecture.md   # Art and architecture applications
-│   ├── 05-design.md             # Modern design (UI/UX, typography)
+│   ├── 04-art-architecture.md   # Art and architecture
+│   ├── 05-design.md             # Modern design (UI/UX)
 │   ├── 06-music.md              # Music and acoustics
 │   ├── 07-photography.md        # Photography composition
-│   ├── 08-finance.md            # Financial markets & trading
-│   ├── 09-computer-science.md   # Algorithms & data structures
-│   ├── 10-myths-debunked.md     # Scientific criticism & myths
-│   └── 11-logo-design.md        # Brand identity & logos
+│   ├── 08-finance.md            # Financial markets
+│   ├── 09-computer-science.md   # Algorithms
+│   ├── 10-myths-debunked.md     # Critical analysis
+│   └── 11-logo-design.md        # Brand identity
 ├── code/
-│   ├── python/                  # Python implementations
+│   ├── python/                  # Legacy Python scripts
 │   ├── javascript/              # JavaScript implementations
 │   └── rust/                    # Rust implementations
 ├── examples/
-│   └── applications.md          # Real-world application examples
-└── assets/                      # Images and diagrams
+│   └── applications.md          # Real-world examples
+└── .github/
+    └── workflows/               # CI/CD configuration
 ```
 
-## Quick Start
+## Documentation
 
-### Calculate the Golden Ratio
+See the [Documentation Index](docs/INDEX.md) for a complete guide.
 
-```python
-import math
+### Key Topics
 
-phi = (1 + math.sqrt(5)) / 2
-print(f"φ = {phi}")  # φ = 1.618033988749895
-```
-
-```javascript
-const phi = (1 + Math.sqrt(5)) / 2;
-console.log(`φ = ${phi}`);  // φ = 1.618033988749895
-```
-
-### Fibonacci & Golden Ratio Relationship
-
-The ratio of consecutive Fibonacci numbers approaches φ:
-
-| n | F(n) | F(n+1) | Ratio |
-|---|------|--------|-------|
-| 1 | 1 | 1 | 1.000 |
-| 2 | 1 | 2 | 2.000 |
-| 3 | 2 | 3 | 1.500 |
-| 4 | 3 | 5 | 1.667 |
-| 5 | 5 | 8 | 1.600 |
-| 6 | 8 | 13 | 1.625 |
-| 7 | 13 | 21 | 1.615 |
-| 8 | 21 | 34 | 1.619 |
-| 9 | 34 | 55 | 1.618 |
-| 10 | 55 | 89 | 1.618 |
-
-## Key Topics Covered
-
-### Mathematics
-- Derivation from quadratic equation x² - x - 1 = 0
-- Binet's formula for Fibonacci numbers
-- Continued fraction representation [1; 1, 1, 1, ...]
-- Geometric constructions (pentagon, dodecahedron)
-
-### Nature (Verified)
-- **Phyllotaxis**: Leaf and seed arrangements in plants
-- **Sunflower spirals**: 34/55 or 55/89 spiral patterns
-- Plant growth patterns following Fibonacci sequences
-
-### Art & Architecture
-- **Le Corbusier's Modulor**: Human-scale proportioning system
-- Classical architecture analysis
-- Modern building design applications
-
-### Modern Applications
-- **UI/UX Design**: Layout proportions, spacing systems
-- **Typography**: Font scaling ratios (1.618 type scale)
-- **Logo Design**: Apple, Twitter, Pepsi, National Geographic
-- **Photography**: Golden spiral composition
-- **Finance**: Fibonacci retracement levels (38.2%, 61.8%)
-
-### Computer Science
-- **Golden-section search**: Optimization algorithm
-- **Fibonacci heaps**: Efficient priority queue
-- **Hashing**: Quasi-random number distribution
-- **Algorithm analysis**: Time complexity calculations
+| Topic | Description |
+|-------|-------------|
+| [Mathematics](docs/01-mathematics.md) | Proofs, formulas, geometric constructions |
+| [Nature](docs/03-nature.md) | Phyllotaxis, spirals, growth patterns |
+| [Design](docs/05-design.md) | Typography, spacing, UI/UX |
+| [Computer Science](docs/09-computer-science.md) | Algorithms, data structures |
+| [Myths Debunked](docs/10-myths-debunked.md) | Critical analysis |
 
 ## Critical Analysis
 
-This compendium takes a **balanced, evidence-based approach**. We distinguish between:
+This compendium takes a **balanced, evidence-based approach**. We classify claims using:
 
-- **Verified**: Strong scientific evidence
-- **Plausible**: Some evidence, needs more research
-- **Myth**: Little to no supporting evidence
-- **Debunked**: Actively disproven claims
+| Level | Meaning |
+|-------|---------|
+| **Verified** ✓ | Strong scientific evidence |
+| **Plausible** ~ | Some evidence, needs research |
+| **Overstated** ! | Exaggerated claims |
+| **Myth** ✗ | No supporting evidence |
+| **Debunked** ✗✗ | Actively disproven |
 
-See [Myths Debunked](docs/10-myths-debunked.md) for critical analysis.
+See [Myths Debunked](docs/10-myths-debunked.md) for detailed analysis.
 
-## Tools & Resources
+## Testing
 
-### Calculators
-- [Golden Ratio Calculator](code/python/calculator.py)
-- [Typography Scale Generator](code/javascript/type-scale.js)
-- [Fibonacci Sequence Generator](code/python/fibonacci.py)
+```bash
+# Run Python tests
+pytest tests/ -v
 
-### External Tools
-- Adobe Photoshop/Lightroom golden ratio overlays
-- [GRT Calculator](https://grtcalculator.com/) - Golden Ratio Typography
-- [PhiMatrix](https://www.phimatrix.com/) - Design overlay software
+# Run with coverage
+pytest tests/ -v --cov=golden_ratio
+
+# Run Rust tests
+cd code/rust && cargo test
+
+# Run JavaScript demo
+cd code/javascript && npm run demo
+```
 
 ## Contributing
 
-Contributions are welcome! Please read our contributing guidelines and submit pull requests for:
-- Additional code implementations
-- Research citations and references
-- Corrections to mathematical content
-- New application examples
+Contributions are welcome! See our [Contributing Guide](.github/CONTRIBUTING.md).
+
+- Bug reports and feature requests via issues
+- Code improvements via pull requests
+- Documentation corrections and additions
+- New application examples with citations
 
 ## References
 
@@ -153,14 +220,9 @@ Contributions are welcome! Please read our contributing guidelines and submit pu
 - Markowsky, G. (1992). "Misconceptions about the Golden Ratio"
 - Livio, M. (2002). "The Golden Ratio: The Story of PHI"
 
-### Key Websites
-- [Golden Number](https://www.goldennumber.net/) - Comprehensive phi resource
-- [Math is Fun](https://www.mathsisfun.com/numbers/golden-ratio.html) - Educational
-- [Plus Magazine](https://plus.maths.org/content/myths-maths-golden-ratio) - Mathematical analysis
-
 ### Research Papers
-- PMC: "The golden ratio—dispelling the myth" (2024)
-- PMC: "New Golden Ratios for Facial Beauty"
+- "The golden ratio—dispelling the myth" (PMC, 2024)
+- "New Golden Ratios for Facial Beauty" (PMC)
 - Fibonacci Quarterly journal archives
 
 ## License
@@ -170,4 +232,3 @@ MIT License - See [LICENSE](LICENSE) for details.
 ---
 
 *"Geometry has two great treasures: one is the Theorem of Pythagoras; the other, the division of a line into extreme and mean ratio. The first we may compare to a measure of gold; the second we may name a precious jewel."* — Johannes Kepler
-
